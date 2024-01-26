@@ -11,7 +11,7 @@ var bgThread = new Thread((object? data) =>
     while (counter < maxCount)
     {
         bool isNetworkUp = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
-        Console.WriteLine($"Is network available? Answer: {isNetworkUp}");
+        Console.WriteLine($"Is network available? Answer: {isNetworkUp}, ThreadId: {Environment.CurrentManagedThreadId}, Priority: {Thread.CurrentThread.Priority} ");
         Thread.Sleep(100);
         counter++;
     }
@@ -22,7 +22,8 @@ bgThread.Start(12);
 
 for (int i = 0; i < 10; i++)
 {
-    Console.WriteLine("Main thread working...");
+    Console.WriteLine($"Main thread working... {Environment.CurrentManagedThreadId}, Priority: {Thread.CurrentThread.Priority}");
+    
     Task.Delay(500);
 }
 
