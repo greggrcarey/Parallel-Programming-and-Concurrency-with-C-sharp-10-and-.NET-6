@@ -9,6 +9,11 @@ ThreadPool.QueueUserWorkItem((o) =>
         Thread.Sleep(100);
     }
 });
+/*
+ Since we are using the ThreadPool, there is no need 
+to set the Thread.IsBackground property or call Thread.Start()
+That happens automatically. 
+ */
 
 for (int i = 0; i < 10; i++)
 {
