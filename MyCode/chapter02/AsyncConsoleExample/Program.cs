@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using AsyncConsoleExample;
+
+Console.WriteLine("Hello Async");
+NetworkHelper networkHelper = new();
+await networkHelper.CheckNetworkStatusAsync();
+Console.WriteLine("Main Method complete");
+Console.ReadKey();
